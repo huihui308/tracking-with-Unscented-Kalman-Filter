@@ -54,8 +54,6 @@ Table 2: Accuracy comparison in RMSE by UKF with different sensor measurements.
 ![][image2] 
 
 
----
-
 
 ## Code & Files
 ### 1. Dependencies & environment
@@ -99,7 +97,7 @@ and if you are viewing it in "github.io" you can be redirected by clicking the *
 3. Compile: `cmake .. && make` 
    * On windows, you may need to run: `cmake .. -G "Unix Makefiles" && make`
 4. Run it by the following commands: 
-   * `./ExtendedKF  ../data/obj_pose-laser-radar-synthetic-input.txt ./output.txt`
+   * `./bin/UnscentedKF ../data/obj_pose-laser-radar-synthetic-input.txt ./output.txt`
 
 
 

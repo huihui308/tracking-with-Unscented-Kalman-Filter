@@ -1,7 +1,7 @@
 #include <iostream>
 #include "ukf.h"
 
-#define DEBUG 0 // toggle debug
+//#define DEBUG 0 // toggle debug
 
 using namespace std;
 using Eigen::MatrixXd;
