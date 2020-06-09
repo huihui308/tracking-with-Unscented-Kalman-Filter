@@ -1,10 +1,11 @@
-#include <fstream>
-#include <iostream>
-#include <sstream>
 #include <vector>
+#include <fstream>
+#include <sstream>
+#include <iostream>
 #include <stdlib.h>
-#include "Eigen/Dense"
 #include "ukf.h"
+#include "Eigen/Dense"
+#include "glog/logging.h"
 #include "ground_truth_package.h"
 #include "measurement_package.h"
 
