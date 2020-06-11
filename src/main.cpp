@@ -205,7 +205,7 @@ int main(int argc, char* argv[])
     }/* end for (size_t k = 0; k < number_of_measurements; ++k) { */
     // compute the accuracy (RMSE)
     Tools tools;
-    cout << "RMSE" << endl << tools.CalculateRMSE(estimations, ground_truth) << endl;
+    LOG(INFO) << "RMSE" << endl << tools.CalculateRMSE(estimations, ground_truth) << endl;
     // close files
     if (out_file_.is_open()) {
         out_file_.close();
@@ -214,7 +214,7 @@ int main(int argc, char* argv[])
     if (in_file_.is_open()) {
         in_file_.close();
     }
-    cout << "Done!" << endl;
+    LOG(WARNING) << "Done!" << endl;
 
     return 0;
 }

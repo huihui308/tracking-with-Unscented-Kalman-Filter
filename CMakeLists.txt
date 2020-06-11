@@ -22,6 +22,7 @@ set(
     libglog.a
     libgflags.a
     ${PCL_LIBRARIES}
+    pthread
 )
 
 
