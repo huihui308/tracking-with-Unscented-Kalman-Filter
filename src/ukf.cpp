@@ -6,9 +6,9 @@
 //#define DEBUG 0 // toggle debug
 
 using namespace std;
+using std::vector;
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
-using std::vector;
 
 
 // constant value 2*pi
@@ -19,7 +19,6 @@ const double _2_PI = 2.*M_PI;
  */
 UKF::UKF()
 {
-
     // initially set to false, set to true in first call of ProcessMeasurement
     is_initialized_ = false;
 
@@ -99,7 +98,8 @@ UKF::~UKF() {}
  * @param {MeasurementPackage} meas_package The latest measurement data of
  * either radar or laser.
  */
-void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
+void UKF::ProcessMeasurement(MeasurementPackage meas_package)
+{
     /**
      * Initialization
      */
@@ -115,7 +115,7 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
     time_us_ = meas_package.timestamp_;
 
 #if DEBUG
-    std::cout << "delta_t = " << delta_t << std::endl;
+    std::cout << "delta_t: " << delta_t << std::endl;
     std::cout << "before prediction" << std::endl;
     std::cout << "x= \n" << x_ << std::endl;
     std::cout << "P= \n" << P_ << std::endl;

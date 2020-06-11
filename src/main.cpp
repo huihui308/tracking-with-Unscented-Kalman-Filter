@@ -6,8 +6,8 @@
 #include "ukf.h"
 #include "Eigen/Dense"
 #include "glog/logging.h"
-#include "ground_truth_package.h"
 #include "measurement_package.h"
+#include "ground_truth_package.h"
 
 
 using namespace std;
@@ -20,10 +20,9 @@ void check_arguments(int argc, char* argv[])
 {
     bool has_valid_args = false;
     string usage_instructions = "Usage instructions: ";
+
     usage_instructions += argv[0];
     usage_instructions += " path/to/input.txt output.txt";
-
-
     // make sure the user has provided input and output files
     if (argc == 1) {
         cerr << usage_instructions << endl;
@@ -34,8 +33,7 @@ void check_arguments(int argc, char* argv[])
     } else if (argc > 3) {
         cerr << "Too many arguments.\n" << usage_instructions << endl;
     }
-
-    if (!has_valid_args) {
+    if ( !has_valid_args ) {
         exit(EXIT_FAILURE);
     }
 
@@ -48,12 +46,11 @@ void check_files(
     ofstream& out_file,
     string& out_name)
 {
-    if (!in_file.is_open()) {
+    if ( !in_file.is_open() ) {
         cerr << "Cannot open input file: " << in_name << endl;
         exit(EXIT_FAILURE);
     }
-
-    if (!out_file.is_open()) {
+    if ( !out_file.is_open() ) {
         cerr << "Cannot open output file: " << out_name << endl;
         exit(EXIT_FAILURE);
     }
@@ -194,7 +191,6 @@ int main(int argc, char* argv[])
         out_file_ << gt_pack_list[k].gt_values_(3) << "\n";
         // convert ukf x vector to cartesian to compare to ground truth
         VectorXd ukf_x_cartesian_ = VectorXd(4);
-
         float x_estimate_ = ukf.x_(0);
         float y_estimate_ = ukf.x_(1);
         float vx_estimate_ = ukf.x_(2) * cos(ukf.x_(3));
@@ -207,11 +203,10 @@ int main(int argc, char* argv[])
     Tools tools;
     LOG(INFO) << "RMSE" << endl << tools.CalculateRMSE(estimations, ground_truth) << endl;
     // close files
-    if (out_file_.is_open()) {
+    if ( out_file_.is_open() ) {
         out_file_.close();
     }
-
-    if (in_file_.is_open()) {
+    if ( in_file_.is_open() ) {
         in_file_.close();
     }
     LOG(WARNING) << "Done!" << endl;
